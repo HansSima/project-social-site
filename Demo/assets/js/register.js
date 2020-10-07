@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	
+
 	//On click signup, hide login and show registration form
 	$("#signup").click(function() {
 		$("#first").slideUp("slow", function(){
@@ -13,5 +13,6 @@ $(document).ready(function() {
 			$("#first").slideDown("slow");
 		});
 	});
+
 
 });
