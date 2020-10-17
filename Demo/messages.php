@@ -46,6 +46,7 @@ if(isset($_POST['post_message'])){
 		<?php
 		if($user_to != "new"){
 			echo "<h4>You and <a href='$user_to'>" . $user_to_obj->getFirstAndLastName() . "</a></h4><hr><br>";
+			//var_dump($user_to);
 			echo "<div class='loaded_messages' id='scroll_messages'>";
 				echo $message_obj->getMessages($user_to);
 			echo "</div>";
@@ -62,9 +63,9 @@ if(isset($_POST['post_message'])){
 			if($user_to == "new"){
 				echo "Select the friend you would like to message<br><br>";
 				?>
-				To: <input type='text' onkeyup='getUser(this.value, <?php echo $userLoggedIn; ?>)' name='q' placeholder='Name' autocomplete='off' id='search_text_input'> 
+				To: <input type='text' onkeyup='getUser(this.value, "<?php echo $userLoggedIn; ?>")' name='q' placeholder='Name' autocomplete='off' id='search_text_input'> 
 				<?php
-				echo "<div class='result'></div>";
+				echo "<div class='results'></div>";
 			}
 			else {
 				echo "<textarea name='message_body' id='message_textarea' placeholder='Write your message...'></textarea>";
@@ -74,10 +75,12 @@ if(isset($_POST['post_message'])){
 			</form>
 		</div>
 		
-		<script>
-			var div = document.getElementById("scroll_messages");
-			div.scrollTop = div.scrollHeight;
-		</script>
+	<script>
+	    var div = document.getElementById("scroll_messages");
+	    if(div != null) {
+	        div.scrollTop = div.scrollHeight;
+	    }
+	</script>
 
 	</div>
 

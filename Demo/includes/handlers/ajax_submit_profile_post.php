@@ -2,6 +2,7 @@
 require '../../Config/config.php';
 include("../classes/user.php");
 include("../classes/post.php");
+include("includes/classes/Notification.php");
 
 if (isset($_POST['post_body'])) {
 	

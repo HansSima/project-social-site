@@ -1,5 +1,5 @@
 <?php
-	include("../../config/config.php");
+	include("../../Config/config.php");
 	include("../classes/user.php");
 	include("../classes/post.php");
 
