@@ -24,8 +24,8 @@
 
 <?php
 		require 'Config/config.php';
-		include("includes/classes/user.php");
-		include("includes/classes/post.php");
+		include("includes/classes/User.php");
+		include("includes/classes/Post.php");
 		include("includes/classes/Notification.php");
 
 		if(isset($_SESSION['username'])){

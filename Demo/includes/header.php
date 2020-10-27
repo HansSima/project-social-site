@@ -1,7 +1,7 @@
 <?php
 require 'Config/config.php';
-include("includes/classes/user.php");
-include("includes/classes/post.php");
+include("includes/classes/User.php");
+include("includes/classes/Post.php");
 include("includes/classes/Message.php");
 include("includes/classes/Notification.php");
 
@@ -39,9 +39,28 @@ else{
 <body>
 
 <div class="top_bar">
+	
 	<div class="logo">
 		<a href="index.php">WhoCares!</a>
 	</div>
+
+	<div class="search">
+		<form action="search.php" method="GET" name="search_form">
+			<input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedIn; ?>')" name="q" placeholder="Search..." autocomplete = "off" id="search_text_input">
+
+			<div class="button_holder">
+				<img src="assets/images/icons/magnifying_glass.png">
+			</div>
+		</form>
+
+		<div class="search_results">
+		</div>
+
+		<div class="search_results_footer_empty">
+		</div>
+
+	</div>
+
 	<nav>
 		<?php
 			$messages = new Message($con, $userLoggedIn);
@@ -57,7 +76,7 @@ else{
 		<a href="<?php echo $userLoggedIn; ?>">
 		<?php echo $user['first_name']; ?>
 		</a>
-		<a href="#">
+		<a href="index.php">
 			<i class="fa fa-home fa-lg"></i>
 		</a>
 		<a href="javascript:void(0);" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
@@ -83,7 +102,7 @@ else{
 				echo '<span class="notification_badge" id="unread_requests">' . $num_requests . '</span>';
 			?>
 		</a>
-		<a href="upload.php">
+		<a href="settings.php">
 			<i class="fa fa-cog fa-lg"></i>
 		</a>
 		<a href="includes/handlers/logout.php">

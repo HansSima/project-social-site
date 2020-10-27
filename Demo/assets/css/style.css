@@ -22,6 +22,7 @@ body {
 	margin: 0 0 10px 0;
 	display: inline-flex;
 	z-index: 10;
+	position: fixed;
 }
 
 .logo a{
@@ -78,6 +79,7 @@ nav a:hover {
 	width: 250px;
 	float: left;
 	margin-bottom: 20px;
+	margin-top: 50px;
 }
  
 .user_details img {
@@ -97,6 +99,7 @@ nav a:hover {
 	width: 70%;
 	z-index: -1;
 	min-height: 170px;
+	margin-top: 50px;
 }
 
 .post_form {
@@ -223,16 +226,16 @@ textarea:focus {
 }
 
 .profile_left {
-	top: -60px;
+	top: 8px;
 	width: 17%;
 	max-width: 240px;
 	min-width: 130px;
 	height: 100%;
 	float: left;
 	position: relative;
-	background-color: #3498db;
+	background-color: #37B0E9;
 	border-right: 10px solid #83D6FE;
-	color: #fff;
+	color: #CBEAF8;
 	margin-right: 20px;
 }
 
@@ -318,14 +321,15 @@ textarea:focus {
 }
 
 .profile_main_column {
-	min-width: 675px;
-	float:left;
+	float: right;
 	width: 70%;
 	z-index: -1;
+	min-height: 170px;
+	margin-top: 50px;
 }
 
 .profile_info_bottom {
-	margin: 80px 0 0 7px;
+	margin: 10 0 0 7px;
 }
 
 #message_textarea{
@@ -436,6 +440,7 @@ textarea:focus {
 .liveSearchText p{
 	margin-left: 10px;
     font-size: 12px;
+    margin-bottom: 1px;
 }
 
 .active {
@@ -489,4 +494,107 @@ textarea:focus {
 .timestamp_smaller {
  	font-size: 85%;
  	margin: 0;
+}
+
+.search {
+	margin: 15px 0 0 30%;
+}
+
+.search #search_text_input {
+    float: left;
+	border: none;
+    border-radius: 25px;
+    width: 100px;
+    height: 25px;
+    padding: 0px 0px 0px 14px;
+}
+
+.button_holder {
+	width: 23px;
+    cursor: pointer;
+    float: left;
+    height: 23px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.button_holder img {
+	width: 23px;
+    height: 23px;
+}
+
+.search_results {
+	background-color: #fff;
+    border: 1px solid #DADADA;
+    border-bottom: none;
+    border-top: none;
+    margin-top: 21px;
+}
+
+.search_results_footer{
+	padding: 7px 4px 0px 4px;
+    height: 30px;
+    border: 1px solid #DADADA;
+    border-top: none;
+    background-color: #20AAE5;
+    text-align: center;
+}
+
+.search_results_footer a {
+	color: #fff;
+}
+
+.search_result {
+	padding: 10px;
+    height: 100px;
+}
+
+.searchPageFriendButtons {
+	float: right
+}
+
+.result_profile_pic {
+	float: left;
+	margin-right: 15px;
+}
+
+#search_hr {
+	margin-bottom: 0px;
+}
+
+.searchPageFriendButtons input[type="submit"] {
+	border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.small_profile_pic {
+	height: 80px;
+    float: left;
+    margin: 1px 12px 0 2px;
+}
+
+#settings_input {
+	border: 1px solid #ccc;
+    height: 20px;
+    padding: 4px 6px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.settings_submit {
+	border: none;
+	padding: 7px 12px;
+	border-radius: 5px;
+	color: #fff;
+}
+
+.postedImage img{
+	max-height: 300px;
+    max-width: 100%;
+    display: block;
+    margin: 5px auto;
 }

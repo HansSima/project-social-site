@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2020 at 03:57 PM
+-- Generation Time: Oct 27, 2020 at 06:35 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -59,6 +59,15 @@ CREATE TABLE `friend_requests` (
   `user_to` varchar(50) NOT NULL,
   `user_from` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `friend_requests`
+--
+
+INSERT INTO `friend_requests` (`id`, `user_to`, `user_from`) VALUES
+(7, 'jan_sima_1_2', 'jan_sima2'),
+(8, 'jan_sima', 'kokot_velky'),
+(9, 'jan_sima_1_2', 'kokot_velky');
 
 -- --------------------------------------------------------
 
@@ -119,7 +128,8 @@ INSERT INTO `messages` (`id`, `user_to`, `user_from`, `body`, `date`, `opened`, 
 (17, 'jan_sima2', 'jan_sima_1', '6. zprava', '2020-10-15 16:52:33', 'yes', 'yes', 'no'),
 (18, 'jan_sima2', 'jan_sima_1_2', '7. zprava', '2020-10-15 16:52:59', 'yes', 'yes', 'no'),
 (19, 'jan_sima2', 'chandler_bing', 'Cum na to vole!!!', '2020-10-15 17:19:27', 'yes', 'yes', 'no'),
-(20, 'jan_sima2', 'chandler_bing', 'Jeste jednou', '2020-10-15 17:23:02', 'yes', 'yes', 'no');
+(20, 'jan_sima2', 'chandler_bing', 'Jeste jednou', '2020-10-15 17:23:02', 'yes', 'yes', 'no'),
+(21, 'kokot_velky', 'kokot_velky', 'Cau vole', '2020-10-27 18:30:18', 'yes', 'yes', 'no');
 
 -- --------------------------------------------------------
 
@@ -163,15 +173,49 @@ CREATE TABLE `posts` (
   `date_added` datetime NOT NULL,
   `user_closed` varchar(3) NOT NULL,
   `deleted` varchar(3) NOT NULL,
-  `likes` int(11) NOT NULL
+  `likes` int(11) NOT NULL,
+  `image` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `body`, `added_by`, `user_to`, `date_added`, `user_closed`, `deleted`, `likes`) VALUES
-(26, 'Cau vole', 'kokot_velky', 'jan_sima2', '2020-10-13 12:58:14', 'no', 'no', 0);
+INSERT INTO `posts` (`id`, `body`, `added_by`, `user_to`, `date_added`, `user_closed`, `deleted`, `likes`, `image`) VALUES
+(26, 'Cau vole', 'kokot_velky', 'jan_sima2', '2020-10-13 12:58:14', 'no', 'no', 0, ''),
+(30, '<br><iframe width=\'420\' height=\'315\' src=\'https://www.youtube.com/embed/BUgrDAIQ5ME\'></iframe><br>', 'jan_sima2', 'none', '2020-10-26 18:08:37', 'no', 'no', 0, ''),
+(31, '<br><iframe width=\'420\' height=\'315\' src=\'https://www.youtube.com/embed/kLCoFizS9xE\'></iframe><br>', 'jan_sima2', 'none', '2020-10-26 18:15:06', 'no', 'no', 0, ''),
+(32, '<br><iframe width=\'420\' height=\'315\' src=\'https://www.youtube.com/embed/QZn9EG3JSV4\'></iframe><br>', 'jan_sima2', 'none', '2020-10-26 18:15:17', 'no', 'no', 0, ''),
+(33, '<br><iframe width=\'420\' height=\'315\' src=\'https://www.youtube.com/embed/QZn9EG3JSV4<br\'></iframe><br> /> <br><iframe width=\'420\' height=\'315\' src=\'https://www.youtube.com/embed/K5mDVTwhjJM\'></iframe><br>', 'jan_sima2', 'none', '2020-10-26 18:15:43', 'no', 'no', 0, ''),
+(34, 'Hi Superbowl', 'kokot_velky', 'none', '2020-10-27 17:24:52', 'no', 'no', 0, ''),
+(35, 'People', 'kokot_velky', 'none', '2020-10-27 17:25:02', 'no', 'no', 0, ''),
+(36, 'aaaaaaaaaa', 'kokot_velky', 'none', '2020-10-27 17:25:05', 'no', 'no', 0, ''),
+(37, 'People', 'kokot_velky', 'none', '2020-10-27 17:25:14', 'no', 'no', 0, ''),
+(38, 'Hello', 'kokot_velky', 'none', '2020-10-27 18:02:22', 'no', 'no', 0, 'assets/images/posts/5f98529e1b85fsherry-christian-8Myh76_3M2U-unsplash.jpg'),
+(39, 'Hi', 'kokot_velky', 'none', '2020-10-27 18:21:50', 'no', 'no', 0, 'assets/images/posts/5f98572e2b17b111.PNG'),
+(40, 'Hi', 'kokot_velky', 'none', '2020-10-27 18:21:58', 'no', 'no', 0, 'assets/images/posts/5f98573692734111.PNG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trends`
+--
+
+CREATE TABLE `trends` (
+  `title` varchar(50) NOT NULL,
+  `hits` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trends`
+--
+
+INSERT INTO `trends` (`title`, `hits`) VALUES
+('Hi', 3),
+('Superbowl', 1),
+('People', 2),
+('Aaaaaaaaaa', 1),
+('Hello', 1);
 
 -- --------------------------------------------------------
 
@@ -205,10 +249,10 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `email`, `pass
 (4, 'Micky', 'Mouse', 'micky_mouse', 'Micky@petrpavel.com', '6daf4a840fc441d7b617bc4d22993970', '2020-08-19', 'assets/images/profile_pics/defaults/head_emerald.png', 0, 0, 'no', ',jan_sima2,'),
 (5, 'Micky', 'Pop', 'micky_pop', 'Mippcky@petrpavel.com', '6daf4a840fc441d7b617bc4d22993970', '2020-08-19', 'assets/images/profile_pics/defaults/head_deep_blue.png', 0, 0, 'no', ',jan_sima2,'),
 (6, 'Jan', 'Sima', 'jan_sima', 'Abcdef@abcdef.com', '6daf4a840fc441d7b617bc4d22993970', '2020-08-23', 'assets/images/profile_pics/defaults/head_emerald.png', 0, 0, 'no', ',jan_sima2,'),
-(7, 'Jan', 'Sima', 'jan_sima_1', 'Abcdefa@abcdef.com', '6daf4a840fc441d7b617bc4d22993970', '2020-08-23', 'assets/images/profile_pics/defaults/head_emerald.png', 0, 0, 'no', ',jan_sima2,'),
-(8, 'Jan', 'Sima', 'jan_sima_1_2', 'Jansima@jenda.com', '6daf4a840fc441d7b617bc4d22993970', '2020-08-25', 'assets/images/profile_pics/defaults/head_emerald.png', 0, 0, 'no', ',jan_sima2,'),
-(9, 'Jan', 'Sima2', 'jan_sima2', 'Jenda@gmail.com', '6daf4a840fc441d7b617bc4d22993970', '2020-08-25', 'assets/images/profile_pics/jan_sima22f61d8cb7652555626b5b8958239e40bn.jpeg', 0, 0, 'no', ',kokot_velky,jan_sima,jan_sima_1,jan_sima_1_2,petr_pavel,chandler_bing,micky_mouse,micky_pop,'),
-(10, 'Kokot', 'Velky', 'kokot_velky', 'Kokotvelky@velky.com', '6daf4a840fc441d7b617bc4d22993970', '2020-08-31', 'assets/images/profile_pics/defaults/head_deep_blue.png', 0, 0, 'no', ',jan_sima2,'),
+(7, 'Jan', 'Sima', 'jan_sima_1', 'Abcdefa@abcdef.com', '6daf4a840fc441d7b617bc4d22993970', '2020-08-23', 'assets/images/profile_pics/defaults/head_emerald.png', 0, 0, 'no', ','),
+(8, 'Jan', 'Sima', 'jan_sima_1_2', 'Jansima@jenda.com', '6daf4a840fc441d7b617bc4d22993970', '2020-08-25', 'assets/images/profile_pics/defaults/head_emerald.png', 0, 0, 'no', ','),
+(9, 'Pokus8', 'Pokus8', 'jan_sima2', 'Pokus7@gmail.com', '797cb93f8b1159e6dc68b2b7fddd6c55', '2020-08-25', 'assets/images/profile_pics/jan_sima22f61d8cb7652555626b5b8958239e40bn.jpeg', 4, 0, 'no', ',kokot_velky,jan_sima,petr_pavel,chandler_bing,micky_mouse,micky_pop,'),
+(10, 'Kokot', 'Velky', 'kokot_velky', 'Kokotvelky@velky.com', '6daf4a840fc441d7b617bc4d22993970', '2020-08-31', 'assets/images/profile_pics/defaults/head_deep_blue.png', 7, 0, 'no', ',jan_sima2,'),
 (11, 'Pokus22', 'Pokus22', 'pokus22_pokus22', 'Pokus22@pokus22.com', '6daf4a840fc441d7b617bc4d22993970', '2020-09-01', 'assets/images/profile_pics/defaults/head_emerald.png', 0, 0, 'no', ','),
 (12, 'Bon', 'Jovi', 'bon_jovi', 'Bonjovi@email.com', '6daf4a840fc441d7b617bc4d22993970', '2020-09-08', 'assets/images/profile_pics/defaults/head_deep_blue.png', 0, 0, 'no', ','),
 (13, 'Jenda', 'Sima', 'jenda_sima', 'Jenda2@gmail.com', '6daf4a840fc441d7b617bc4d22993970', '2020-09-16', 'assets/images/profile_pics/defaults/head_deep_blue.png', 0, 0, 'no', ',');
@@ -273,7 +317,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `friend_requests`
 --
 ALTER TABLE `friend_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `likes`
@@ -285,7 +329,7 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -297,7 +341,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `users`

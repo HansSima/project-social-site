@@ -1,7 +1,7 @@
 <?php
 	include("../../Config/config.php");
-	include("../classes/user.php");
-	include("../classes/post.php");
+	include("../classes/User.php");
+	include("../classes/Post.php");
 
 	$limit = 10; //Number of posts to be loaded per call
 
