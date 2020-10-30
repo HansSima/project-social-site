@@ -22,6 +22,7 @@ if(isset($_POST['post'])){
 		if(strtolower($imageFileType) != "jpeg" && strtolower($imageFileType) != "jpg" && strtolower($imageFileType) != "png"){
 			$errorMessage = "Sorry only jpeg, jpg and png files are allowed";
 			$uploadOk = 0;
+			//comment example
 		}
 
 		if($uploadOk) {
